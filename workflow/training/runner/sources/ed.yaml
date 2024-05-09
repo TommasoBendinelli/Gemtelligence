@@ -1,0 +1,9 @@
+ed:
+  name: ed
+  # include_additional_info: True
+  # include_reference_data: -1
+  cancel_out_threshold: True
+  num_columns: ?? # 26 for sapphire and 16 for emerald. When training/testing on emerald set this to 16. Done at runtime
+  val_method: max
+  is_log: False
+  is_z_normalized: False

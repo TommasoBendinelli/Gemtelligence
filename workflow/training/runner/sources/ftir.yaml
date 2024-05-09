@@ -1,0 +1,9 @@
+ftir:
+  name: ftir
+  data_processing: 0
+  add_secondary_target: 0
+  input_dim: 6801
+  val_method: max 
+  raw_path:
+    ruby: Null 
+    sapphire: Null

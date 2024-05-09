@@ -1,0 +1,109 @@
+{
+    "PATH":{
+    "MODELS_FAST":
+    {
+        "FTIR":"models/ftir.pth",
+        "UV_FTIR": "models/uv_ftir.pth"
+    },
+    "path_base":"repos/gemintelligence",
+    "path_EDXRF_dataset": "data/raw_data/sapphire/sapphire_data_reference/ED-XRF_Chemistrysapphire.xlsx",
+    "path_LAICPMS_dataset": "data/raw_data/sapphire/sapphire_data_reference/LA-ICPMS_Chemistrysaphhire.xls",
+    "path_optical_dataset": "data/raw_data/sapphire/spectra_sapphire_for_automatic_evaluation",
+    "path_h5":"data/processed_data/hierchical_file_format.h5",
+    "path_h5_results": "results/results.h5",
+    "path_optical_dataset_3_5_880_0_280_0": "data/pandas_data/optical_dataset_3_5_880_0_280_0",
+    "path_data_client_stones_2017_2019": {
+        "datable": "data/raw_data/sapphire/client_stones/Data table I Sapphire 2017 - 2019.xlsx",
+        "ED_XRF": "data/raw_data/sapphire/client_stones/ED_XRF_table_sapphires_2017_2019",
+        "FTIR": "data/raw_data/sapphire/client_stones/FTIR_table_I_sapphires_2017_12019",
+        "UV": "data/raw_data/sapphire/client_stones/UV_VIS_to_table_I_sapphire_2017_2019"
+    },
+    "path_checkpoint":"checkpoint/"
+    },
+    "AUTOMATIC":
+    {
+        "ED_DATA":
+        {
+            "CLIENT":
+            {
+                "processed":"data/automatic/sapphire/processed_ed_data"
+            }
+        }
+    },
+    "H5_KEY":{
+        "UV_DATA": {
+            "imported": "imported_uv_data",
+            "processed": "processed_uv_data"
+        },
+        "FTIR_DATA":
+        {
+            "imported":"imported_ftir_data",
+            "processed": "processed_ftir_data",
+            "PRE_TRAINING":{
+                "none": "none"
+             }
+        },
+        "UV_FTIR_COMBINED":
+        {
+            "wrangled": "uv_ftir_wrangled"
+        },
+        "ED_DATA":
+        {   
+            "REFERENCE":
+            {
+                "PRETRAINING":
+                {
+                    "SEPARATE":
+                    {
+                        "X":"pretraining_x_reference_stone_ed",
+                        "Y":"pretraining_y_reference_stone_ed"
+                    }
+
+                }
+            },
+            "CLIENT":
+            {
+            "imported":"imported_ed_data",
+            "processed": "processed_ed_data",
+            "PRETRAINING": 
+            {
+                "SEPARATE":
+                {
+                    "X": "processed_ed_data_X_pretraining",
+                    "Y": "processed_ed_data_Y_pretraining"
+                }  
+            }
+            },
+            "COMBINED":
+            {
+                "pretraining": "dataset_all_ed_data_outliers_removed"
+            }
+        },
+    
+        "master_file": "master_file",
+        "RANDOM_FOREST":
+        {
+            "ed_data_reference": "random_ed_data",
+            "ed_data_client": "random_forest_ed_data_client",
+            "ed_data_combined": "random_forest_combined"
+        }},
+    "DATA_HANDLING":{
+        "NaN_Handling": "drop", 
+        "Filter_out_regions": true,
+        "Normalize":  false,
+        "Outliers": 3, 
+        "below_resolution": 0 
+    },
+    "ALGORITHMS":{
+        "RandomForestClassifier":{
+            "name": ["sklearn.ensemble.RandomForestClassifier"],
+            "Number_of_estimator": [100, 1000, 10000, 50000], 
+            "class_weight": ["None", "balanced", "balanced_subsample"]
+        },
+        "XGBClassifier":{
+            "name": ["xgboost.XGBClassifier"],
+            "n_estimators": [100,1000,1000, 50000],
+            "max_depth": [2,4,6,8]
+        }
+    }       
+}

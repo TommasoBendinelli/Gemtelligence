@@ -1,0 +1,76 @@
+name: hol_net
+model_type: torch
+
+batch: 16 #Best Choice
+patience: 100
+val_method: mean
+max_epoch: 70
+lr: 0.0001
+balanced_loss: False
+check_val_every_n_epoch: 5
+is_log_normalized: False
+lr_type: "AdamW"
+prob_to_drop: 0.5
+all_saint: False
+
+model:
+  name: hol_net_v1
+
+
+  resnet:
+    method:
+      name: strided_resnet
+      model_type: torch
+      batch: 16 #Best Choice
+
+      precision: 16
+      architecture: NeuralNetwork
+      patience: 20
+
+      lr: 0.001 #Best choice
+      hidden_size: 128
+      block_size: 2 #Best choice
+      in_channels: 64
+      layers: 6 
+      dropout: 0 # Best Choice
+      type_of_optimizer: 1 # Best Choice
+      patience_lr: 5 # Best Choice
+      additional_relu: False #Best Choice
+      additional_bn: True # Best Choice
+      kernel_size: 59 #59 #59 #37
+      output: all
+      stride_inner: 2
+      kernel_inner: 17 #5 #17 #5
+      target: val_accuracy
+      normalize: False
+      remove_saturation: 0
+      sature_random_inputs: 0
+
+      output_all:
+        num_heads: 4 
+        fin_dim: 100
+
+    dataset:
+      up_shift_scale: 0
+      max_shift: 0
+      scale: 0 
+
+  # tab_transformer:
+  #   num_layers: 16
+
+  saint:
+    pretraining: False
+    embedding_size: 32
+    cont_embedding_size: 32
+    transformer_depth: 1
+    attention_heads: 4 
+    attention_dropout: 0.8 #0.8
+    ff_dropout: 0.8 #0.8
+    cont_embeddings: MLP
+    attentiontype: colrow
+    final_mlp_style: sep
+    fake_batch: 128
+    check_val_every_n_epoch: 5
+    val_method: mean
+    lr: 0.0001 #Best choice
+    lr_type: "AdamW"

@@ -1,0 +1,53 @@
+name: strided_resnet
+model_type: torch
+loss_target: val_ht_loss
+batch: 16 #Best Choice
+
+# exp_name: FTIR_DATA_RESNET_${target}_${debug}
+max_epoch: 200
+precision: 16
+# data_source: FTIR_DATA
+architecture: NeuralNetwork
+patience: 20
+num_workers: 0
+gpu: 1
+
+lr: 0.001 #Best choice
+hidden_size: 100
+block_size: 2 #Best choice
+in_channels: 64
+layers: 6
+dropout: 0 # Best Choice
+type_of_optimizer: 1 # Best Choice
+patience_lr: 5 # Best Choice
+additional_relu: False #Best Choice
+additional_bn: True # Best Choice
+kernel_size: 37
+output: all
+stride_inner: 2
+kernel_inner: 5
+target: val_accuracy
+normalize: False
+remove_saturation: 0
+sature_random_inputs: 0
+
+output_all:
+  num_heads: 4 
+  fin_dim: 100
+
+dataset:
+  up_shift_scale: 0
+  max_shift: 10
+  scale: 0 
+
+#@package _group_
+hydra:
+  sweep:
+      dir: runs_s/${exp_name}/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  overrides:
+    task:
+    - hyperparameters.kernel_size=37
+    # - hyperparameters.noisy_labels.my_list="remove"
+    # - hyperparameters.noisy_labels.klemens="remove"
+    - hyperparameters.target=val_accuracy,val_overall,val_loss
+    - hyperparameters.dataset.index_one_row=keep,drop

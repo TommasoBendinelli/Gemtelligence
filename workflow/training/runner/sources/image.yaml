@@ -1,0 +1,7 @@
+image:
+  val_method: mean
+  data_considered: #From which year to consider
+  height: 480
+  width: 640
+  zoom: 4
+  name: image

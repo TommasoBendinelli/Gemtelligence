@@ -1,0 +1,11 @@
+nlp:
+  data_processing: 0
+  scale: 0 # Best Choice
+  max_shift: 10 # Best Choice
+  up_shift_scale: ???
+  sature_random_inputs: ???
+  add_secondary_target: True
+  remove_saturation: False
+  normalize: False
+  index_one_row: drop
+  additional_info: False

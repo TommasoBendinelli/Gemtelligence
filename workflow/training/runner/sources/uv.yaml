@@ -1,0 +1,6 @@
+uv:
+  name: uv
+  index_one_row: keep
+  data_processing: 1
+  add_secondary_target: 0
+  input_dim: 1201

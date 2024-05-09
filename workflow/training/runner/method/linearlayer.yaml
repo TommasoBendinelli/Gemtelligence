@@ -1,0 +1,10 @@
+model_type: traditional
+name: linearlayer
+#number_of_estimators: 1000
+uv_ensamble: False
+ed_path: paper_results/sapphire_origin/2022-12-07/09-25-30/0/results #paper_results/sapphire_origin/2022-11-01/11-34-21/0/results
+uv_path: paper_results/sapphire_origin/2022-11-01/08-16-00/0/results
+#ftir_path: paper_results/sapphire_origin/2022-11-01/09-03-40/0/results
+
+#uv_path: paper_results/sapphire_heat/2022-12-15/15-37-30/0/results #paper_results/sapphire_heat/2022-12-10/00-48-24/0/results #runs/sapphire_treatment_hol_net/2022-12-08/16-19-05/0/results #paper_results/sapphire_heat/2022-11-14/10-50-55/0/results
+#ftir_path: paper_results/sapphire_heat/2022-12-14/22-10-40/0/results #paper_results/sapphire_heat/2022-11-14/07-45-50/0/results

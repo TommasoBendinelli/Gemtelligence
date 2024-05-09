@@ -1,0 +1,17 @@
+icp:
+  name: icp
+  include_strongly_mislabelled_data: ???
+  include_additional_info: True #Best Choice  
+  include_additional_info2: False
+  cancel_out_threshold: True #Best Choice
+  include_ED: False
+  #data_feeding: ??? # 0, -1 candidate --> 0 Much faster
+  data_feeding: "single"
+  calibrate: False
+  include_reference_data: -1
+  unsupervised_idea: False
+  remove_features: None
+  val_method: max
+  num_columns: ??
+  is_log: False
+

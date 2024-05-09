@@ -1,0 +1,36 @@
+defaults:
+  - method: hol_net
+  - run: release
+  - sources: ???
+  # - hyqdra/launcher: joblib
+
+stone_type: sapphire
+target: ??? #[heat, origin, pre_origin]
+debug: debug
+add_secondary_target: False
+export_estimator: True
+class_len: ??? # Added at runtime
+secondary_class_len: ??? # Added at runtime
+filter_years: False
+#use_fix_generator_path: paper_results/sapphire_origin/2022-08-09/09-36-29/0/splits.json #runs/sapphire_uv_origin_hol_net/2022-08-08/07-45-54/0/splits.json
+use_fix_generator_path_val: #outputs/2022-10-27/17-43-32/splits_val.json
+split_val_test: True
+save_best_model_in_val: True
+to_monitor: val_loss # It is used to save the best model
+to_monitor_mode: min
+is_consistent_exp: False
+only_val:
+  uv: True
+  ed: True
+  ftir: True
+  icp: True
+  path: ""
+
+
+experiments:
+  train_only_on_country: 
+
+hydra:
+  run:
+    dir: outputs/${target}/UV=${only_val.uv}_XRF=${only_val.ed}_FTIR=${only_val.ftir}_ICP=${only_val.icp}/${now:%Y-%m-%d}/${now:%H-%M-%S}
+

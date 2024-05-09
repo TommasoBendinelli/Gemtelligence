@@ -1,0 +1,1 @@
+python3 -m pdb  workflow/training/runner.py target=pre_origin sources=["ed","uv"] only_val.uv=True only_val.ed=False only_val.ftir=False only_val.icp=False only_val.path="" use_fix_generator_path_val="data/cv_splits_origin.json" run=debug

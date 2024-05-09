@@ -1,0 +1,17 @@
+# defaults:
+#   - hydra/sweeper: ax
+# data_source: ED_DATA
+# architecture: RandomForest
+# exp_name: ${architecture}_${data_source} 
+
+name: rf
+model_type: traditional
+
+
+class_weight: null
+#include_reference_data: -1
+
+calibrate: false
+maximum_depth: null
+number_of_estimators: 1000
+#cancel_out_threshold: True

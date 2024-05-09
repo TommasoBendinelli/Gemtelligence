@@ -1,0 +1,21 @@
+model_type: torch
+name: saint
+model:
+  name: saint
+pretraining: False
+embedding_size: 32
+cont_embedding_size: 32
+transformer_depth: 1
+attention_heads: 4 
+attention_dropout: 0.8
+ff_dropout: 0.8
+cont_embeddings: MLP
+attentiontype: colrow
+final_mlp_style: sep
+fake_batch: 256
+batch: 16
+check_val_every_n_epoch: 5
+max_epoch: 60
+val_method: mean
+lr: 0.0001 #Best choice
+lr_type: "AdamW"
