@@ -53,7 +53,6 @@ def main(cfg: DictConfig) -> None:
     #Loading data
     # If it is sapphire, we load all the data (since the df is not too big)
     client_data = utils.load_client_data(stone_type = cfg.stone_type)
-    
     #Create Data specific Data Structure
     data = Data(dict_df_client=client_data, dict_df_reference=None)
 

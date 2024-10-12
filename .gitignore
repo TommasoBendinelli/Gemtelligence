@@ -1,1 +1,7 @@
 .DS_Store
+env/
+cachedir/
+outputs/
+data/
+__pycache__/
+*.egg-info
