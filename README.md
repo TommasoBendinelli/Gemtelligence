@@ -84,11 +84,11 @@ To train the model, you need to have a GPU available.
 
 the model from scratch for origin determination, run the following command:
 ```
-python3 workflow/training/runner.py target=origin sources=["ed","uv","icp"] only_val.uv=True only_val.ed=True only_val.icp=false method.max_epoch=170 use_fix_generator_path_val="data/cv_splits_origin.json"
+python3 workflow/training/runner.py target=origin sources=["ed","uv","icp"] only_val.uv=True only_val.ed=True only_val.icp=false method.max_epoch=170 use_fix_generator_path_val="data/cv_splits_origin.json" method.model.saint.fake_batch=64
 ```
 - To train the model from scratch for treatment detection, run the following command:
 ```
-python3 workflow/training/runner.py target=treatment sources=["uv","ftir"] only_val.uv=True only_val.ftir=True method.max_epoch=170 use_fix_generator_path_val="data/cv_splits_heat.json"
+python3 workflow/training/runner.py target=treatment sources=["uv","ftir"] only_val.uv=True only_val.ftir=True method.max_epoch=170 use_fix_generator_path_val="data/cv_splits_heat.json" method.model.saint.fake_batch=64
 ```
 Both commands will train the model for 170 epochs, assess performance based on the validation set, and evaluate performance on the test set. You can choose which data sources to use for validation and testing by setting the flags `only_val.uv`, `only_val.ed`, and `only_val.icp`. **The results and the model will be saved in the outputs/ folder**.
 
@@ -97,6 +97,11 @@ Note that `ed` refers to EDXRF data, `icp` refers to ICP data, `uv` refers to UV
 `use_fix_generator_path_val` specifies which split to use for cross-validation. You can omit the flag `use_fix_generator_path_val` to use a new split.
 
 Your trained models will be located in the **outputs/** folder.
+
+Please note that the data provided is only a subset of the complete dataset used in the research. The included training script is intended for demonstration purposes only and will not yield the same results as those reported in the paper. If you require access to the full dataset or the exact training process, please contact the authors.
+
+We are using a relatively old pytorch version, which might cause issues with newer versions of CUDA. If you encounter any issues, please try use cpu only setting by using run.gpu=0 in the training flag.
+
 
 ### Evaluate the Models
 - To evaluate a model without training it, specify the path with the flag `only_val.path`. For example, the following command evaluates the model saved in the **outputs/2023-05-08/13-06-30 folder**:
@@ -127,3 +132,7 @@ experiment_paths = {
 ```
 
 After updating the paths, run the corresponding visualization scripts to generate the figures with the new evaluation results.
+
+
+
+```

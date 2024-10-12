@@ -379,7 +379,6 @@ def cv_training(
         data.dict_df_client
     )  # This is the dict that will be used for training/validation
     # Small log about the number of stones available
-
     res = ResultsCV(data_to_feed, cfg)
     # df = data.dict_df.copy()
 

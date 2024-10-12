@@ -29,8 +29,8 @@ warnings.filterwarnings("default", module="csem_gemintelligence.utils")
 
 
 # Helper functions
-def filter_data_for_task(raw_data, task):
-    filtered_data = utils.return_df_for_paper(raw_data, task, filter_noisy=True)
+def filter_data_for_task(raw_data, task, years=None):
+    filtered_data = utils.return_df_for_paper(raw_data, task, filter_noisy=True, years=years)
     available_ids = filtered_data["val"].index
     return filtered_data, available_ids
 
@@ -1073,10 +1073,11 @@ def return_df_for_paper(raw_df, target, filter_noisy=False, years=None):
         for key in sources:
             tmp[key] = raw_df[key].loc[available_ids]
 
-        bool_cond = [x for x in tmp["val"].index if str(x)[:2] in years]
+        if isinstance(years, list):
+            bool_cond = [x for x in tmp["val"].index if str(x)[:2] in years]
 
-        for key in sources:
-            tmp[key] = tmp[key].loc[bool_cond]
+            for key in sources:
+                tmp[key] = tmp[key].loc[bool_cond]
 
         bool_cond = tmp[key]["Heat Treatment Value"].isin(
             target_list("treatment", "sapphire")
@@ -1304,8 +1305,8 @@ def return_threshold(results, accuracy=0.95, available_ids=None):
 
 
 # Helper functions
-def filter_data_for_task(raw_data, task):
-    filtered_data = return_df_for_paper(raw_data, task, filter_noisy=True)
+def filter_data_for_task(raw_data, task, years=None):
+    filtered_data = return_df_for_paper(raw_data, task, filter_noisy=True, years=years)
     available_ids = filtered_data["val"].index
     return filtered_data, available_ids
 
