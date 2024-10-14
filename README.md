@@ -6,7 +6,7 @@ Gemtelligence is a deep learning-based approach designed to achieve highly accur
 
 ### Repository Contents
 - **src/**: Source code for the Gemtelligence model, including the convolutional and attention-based neural networks.
-- **data/**: Sample dataset of gemstone properties and measurements collected using various analytical methods. Available for download: TBD.
+- **data/**: Sample dataset of gemstone properties and measurements collected using various analytical methods. Available for download: [https://drive.google.com/file/d/1nsSeTdKSR2DvSLJw1lRKMr7oc5e36oZt/view?usp=sharing].
 - **results/**: Results of the experiments reported in the paper, including the models of each fold. Available for download [https://drive.google.com/file/d/1Zi8Jjr468XgluBgFthjNa3hprZ282MpZ/view?usp=share_link].
 - **visualization/**: Code for reproducing the figures presented in the paper and to run the demo
 - **workflow/**: Code for training and evaluating the model.
